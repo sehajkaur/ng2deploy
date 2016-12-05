@@ -1,0 +1,5 @@
+<h3>The Flintstones Family</h3>
+<a *ngFor="let c of characters"  [routerLink]="['/detail', c.PersonId]"  class="col-1-4">
+  <p>{{c.FirstName}} {{c.LastName}}</p>
+</a>
+

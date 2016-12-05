@@ -1,0 +1,34 @@
+<table *ngIf="characters" border="1">
+  <thead>
+    <tr>
+      <th>Person ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Occupation</th>
+      <th>Gender</th>
+      <th>Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of characters; let i=index;" (click)="onSelect(c)" [class.selected]="c === selected">
+      <td>{{c.PersonId}}</td>
+      <td>{{c.FirstName}}</td>
+      <td>{{c.LastName}}</td>
+      <td>{{c.Occupation}}</td>
+      <td>{{c.Gender}}</td>
+      <td><img src="{{c.Picture}}" 
+        alt="{{c.FirstName}} {{c.LastName}}" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+<app-character-detail [character]="selected"></app-character-detail>
+-->
+
+<div *ngIf="selected">
+  <h2>
+    {{selected.FirstName | uppercase}} {{selected.LastName | uppercase}} is favorite cartoon character.
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
